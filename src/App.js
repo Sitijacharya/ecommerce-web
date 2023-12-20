@@ -1,24 +1,18 @@
-import logo from './logo.svg';
+
 import './App.css';
+import MyRoute from './MyRoute';
+import cartReducer from './redux/reducers/cartReducer';
+import { legacy_createStore } from 'redux'; // it helps to know compiler that any reducer is our store
+import { Provider } from 'react-redux'; // to provide data from reducer to components
+import store from './store';
 
 function App() {
+  //const store=legacy_createStore(cartReducer)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <MyRoute/>
+
+    </Provider>
   );
 }
 
